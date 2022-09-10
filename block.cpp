@@ -61,11 +61,11 @@ namespace block_chain
         return false;
     }
 
-    void sign() {
+    void Block::sign() {
         //TODO: implement using openssl
     }
     
-    bool verify_signature() {
+    bool Block::verify_signature() {
         //TODO: implement using openssl
         return true;
     }
