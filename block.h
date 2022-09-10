@@ -19,6 +19,7 @@ namespace block_chain
         string hash;
         string prev_hash;
         int salt = 0;
+        string signature;
 
     public:
         Block()
@@ -46,6 +47,8 @@ namespace block_chain
         string calculate_hash_md5();
         string calculate_hash_sha256();
         bool is_valid();
+        void sign();
+        bool verify_signature();
     };
 };
 #endif

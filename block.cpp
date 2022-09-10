@@ -55,7 +55,19 @@ namespace block_chain
 
     bool Block::is_valid()
     {
-        return this->hash == this->calculate_hash_sha256();
+        if (verify_signature()) {
+            return this->hash == this->calculate_hash_sha256();
+        }
+        return false;
+    }
+
+    void sign() {
+        //TODO: implement using openssl
+    }
+    
+    bool verify_signature() {
+        //TODO: implement using openssl
+        return true;
     }
 
 };
