@@ -4,29 +4,26 @@
 #include <string>
 #include <vector>
 #include "block.h"
+#include "signer.h"
 
 namespace block_chain
 {
     using namespace std;
 
-    // BlockChain class represents chain of blocks. Major functions to create, verify, and validate blocks
     class BlockChain
     {
     public:
-        // creates new block with specified data at the end of the chain
         void create_block(string data);
-
-        // verifies a specific block on the chain
         bool verify_block(Block & block);
-
-        // verifies all blocks in the whole chain
         bool validate_blocks();
         Block get_block(int index);
+        void init_signer(const string private_key_file, const string public_key_file);
         BlockChain() {}
         ~BlockChain() {}
 
     private:
         vector<Block> blocks;
+        Signer signer;
     };
 };
 #endif //BLOCKCHAIN_H_

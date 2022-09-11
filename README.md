@@ -17,7 +17,6 @@ current block from the chain, create new block object, calculating/mining data h
 of the chain. 
 ### Mining Block
 ### Verify Individual Block
-Verify individual block to make sure the hash matches with the block contents and the signature is correct.
 ### Verify Block Chain
 
 ## OpenSSL API

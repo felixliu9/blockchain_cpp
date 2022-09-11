@@ -3,6 +3,7 @@
 
 #include <chrono>
 #include <string>
+#include "signer.h"
 
 namespace block_chain
 {
@@ -11,8 +12,6 @@ namespace block_chain
 
     static const int PREFIX_ZERO_COUNT = 3;
 
-    // the Block class holds the important fields of a block, 
-    // including data, timestamp, hash, previous hash, salt, and signature.
     class Block
     {
     private:
@@ -45,22 +44,13 @@ namespace block_chain
         void set_data(string data) { this->data = data; }
         void set_hash(string hash) { this->hash = hash; }
         void set_prev_hash(string hash) { this->prev_hash = hash; }
+        string get_signature(){return signature;}
         void mining();
-
-        // hash calculation method using md5 (16 byte)
         string calculate_hash_md5();
-
-        // hash calculation method using sha256 (32 byte)
         string calculate_hash_sha256();
-
-        // checks validity of this block
-        bool is_valid();
-
-        // digital signing block using private key
-        void sign();
-
-        // verifies digital signature using public key
-        bool verify_signature();
+        bool is_valid(Signer signer);
+        void sign(Signer signer);
+        bool verify_signature(Signer signer);
     };
 };
 #endif

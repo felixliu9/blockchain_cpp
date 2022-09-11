@@ -53,21 +53,22 @@ namespace block_chain
         return ss.str();
     }
 
-    bool Block::is_valid()
+    bool Block::is_valid(Signer signer)
     {
-        if (verify_signature()) {
+        if(verify_signature(signer)){
             return this->hash == this->calculate_hash_sha256();
         }
+
         return false;
     }
 
-    void Block::sign() {
-        //TODO: implement using openssl
+    void Block::sign(Signer signer)
+    {
+        signature = signer.sign(hash);
     }
-    
-    bool Block::verify_signature() {
-        //TODO: implement using openssl
-        return true;
+    bool Block::verify_signature(Signer signer)
+    {
+        return signer.verify(signature, hash);
     }
 
 };
