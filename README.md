@@ -16,9 +16,11 @@ Given transaction data and current data block in the block chain, create a new b
 current block from the chain, create new block object, calculating/mining data hash, digital signing the hash and insert the verified block to the end 
 of the chain. 
 ### Mining Block
+To simplify the process, the mining process is to find a hash starts with fixed number of zeros.
 ### Verify Individual Block
+Verify individual block for hash value and signature.
 ### Verify Block Chain
-
+Verify all blocks in the block chain.
 ## OpenSSL API
 [OpenSSL API](https://github.com/openssl/openssl) is used in this project for data hashing and digital signing functions. 
 ### Build & Installation
