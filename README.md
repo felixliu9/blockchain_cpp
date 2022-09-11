@@ -40,5 +40,5 @@ Once done, OpenSSL includes and libs should be installed into the system include
 To use OpenSSL API, add the /usr/local/include folder into the project configuration. Also to add -lcrypto option in C++ compilation/link command line, 
 for example: 
 ```
-g++ -std=c++11 block.cpp block_chain.cpp -lcrypto
+g++ -std=c++11 signer.cpp block.cpp block_chain.cpp -lcrypto
 ```
