@@ -30,6 +30,17 @@ namespace block_chain
 
     bool BlockChain::validate_blocks()
     {
+        int size = static_cast<int>(blocks.size());
+        for(int i = 0; i < size; ++i) {
+            if (!blocks[i].is_valid()) {
+                return false;
+            }
+            if (i != 0) {
+                if (blocks[i].get_prev_hash() != blocks[i-1].get_hash()) {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 
